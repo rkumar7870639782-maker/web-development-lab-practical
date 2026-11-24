@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Expense Tracker</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <h1>💰 Expense Tracker</h1>
+                <p>Manage your money, manage your future.</p>
+            </div>
+
+            <div class="date-box">
+                <span>📅</span>
+                <span id="currentDate"></span>
+            </div>
+        </header>
+
+
+        <!-- Welcome Section -->
+        <section class="welcome">
+            <div>
+                <h2>Hello, Student! 👋</h2>
+                <p>Track your daily expenses and save smarter.</p>
+            </div>
+            <div class="welcome-icon">💳</div>
+        </section>
+
+
+        <!-- Summary Cards -->
+        <section class="summary">
+
+            <div class="card total-card">
+                <div class="card-icon">💸</div>
+                <p>Total Expenses</p>
+                <h2 id="totalExpenses">₹0.00</h2>
+            </div>
+
+            <div class="card count-card">
+                <div class="card-icon">🧾</div>
+                <p>Total Transactions</p>
+                <h2 id="totalTransactions">0</h2>
+            </div>
+
+            <div class="card budget-card">
+                <div class="card-icon">🎯</div>
+                <p>Monthly Budget</p>
+                <h2 id="monthlyBudget">₹5,000</h2>
+            </div>
+
+            <div class="card balance-card">
+                <div class="card-icon">💰</div>
+                <p>Remaining Budget</p>
+                <h2 id="remainingBudget">₹5,000</h2>
+            </div>
+
+        </section>
+
+
+        <!-- Budget Section -->
+        <section class="budget-section">
+
+            <div class="section-heading">
+                <h3>Monthly Budget Progress</h3>
+                <span id="budgetPercentage">0%</span>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="budgetProgress"></div>
+            </div>
+
+            <p id="budgetMessage">
+                Start tracking your expenses!
+            </p>
+
+            <div class="budget-input">
+                <input
+                    type="number"
+                    id="budgetInput"
+                    placeholder="Enter monthly budget"
+                    min="1"
+                    step="0.01"
+                >
+
+                <button type="button" id="setBudgetBtn">
+                    Set Budget
+                </button>
+            </div>
+
+        </section>
+
+        <main class="main-content">
+
+            <!-- Add Expense Form -->
+            <section class="expense-form-section">
+
+                <h3>➕ Add New Expense</h3>
+
+                <form id="expenseForm">
+
+                    <div class="form-group">
+                        <label for="expenseName">Expense Name</label>
+
+                        <input
+                            type="text"
+                            id="expenseName"
+                            placeholder="e.g. Lunch, Books, Bus..."
+                            maxlength="50"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="expenseAmount">Amount (₹)</label>
+
+                        <input
+                            type="number"
+                            id="expenseAmount"
+                            placeholder="Enter amount"
+                            min="0.01"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="expenseCategory">Select Category</label>
+
+                        <select id="expenseCategory" required>
+
+                            <option value="">Choose Category</option>
+                            <option value="Food">🍔 Food</option>
+                            <option value="Travel">🚌 Travel</option>
+                            <option value="Shopping">🛍️ Shopping</option>
+                            <option value="Education">📚 Education</option>
+                            <option value="Other">📦 Other</option>
+
+                        </select>
+                    </div>
+
+
+                    <button type="submit" class="add-btn">
+                        + Add Expense
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <section class="expense-list-section">
+
+                <div class="list-header">
+                    <h3>📋 Recent Expenses</h3>
+                    <span id="expenseCount">0 Records</span>
+                </div>
+
+
+                <!-- Search -->
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="🔍 Search expenses..."
+                    >
+                </div>
+
+
+                <!-- Category Filter -->
+                <div class="filter-box">
+
+                    <label for="categoryFilter">
+                        Filter by Category:
+                    </label>
+
+                    <select id="categoryFilter">
+
+                        <option value="All">All Categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Education">Education</option>
+                        <option value="Other">Other</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Expenses Display -->
+                <div id="expenseList" class="expense-list">
+
+                    <div class="empty-state">
+                        <div>📭</div>
+                        <h3>No Expenses Yet!</h3>
+                        <p>Add your first expense to get started.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- Category Summary -->
+        <section class="category-section">
+
+            <h3>📊 Category-wise Spending</h3>
+
+            <div id="categorySummary" class="category-summary">
+
+                <p>No category data available yet.</p>
+
+            </div>
+
+        </section>
+
+        <footer class="footer">
+
+            <h3>Expense Tracker 💜</h3>
+
+            <p>
+                Smart Spending Today, Better Future Tomorrow.
+            </p>
+
+            <p>Created by Roushan Kumar | Student Project</p>
+
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
