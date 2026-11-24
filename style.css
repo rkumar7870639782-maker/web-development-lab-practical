@@ -1,0 +1,548 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0b1020;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.container {
+    width: 92%;
+    max-width: 1250px;
+    margin: auto;
+    padding: 30px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header h1 {
+    font-size: 30px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #a78bfa, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header p {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.date-box {
+    background: #171e33;
+    border: 1px solid #29334d;
+    padding: 12px 18px;
+    border-radius: 12px;
+    color: #c4b5fd;
+    font-size: 13px;
+}
+
+.welcome {
+    background: linear-gradient(120deg, #312e81, #6d28d9, #9333ea);
+    padding: 28px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(109, 40, 217, 0.2);
+}
+
+.welcome h2 {
+    font-size: 25px;
+    margin-bottom: 6px;
+}
+
+.welcome p {
+    font-size: 13px;
+    color: #ddd6fe;
+}
+
+.welcome-icon {
+    font-size: 55px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: #171e33;
+    border: 1px solid #29334d;
+    padding: 22px;
+    border-radius: 17px;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #8b5cf6;
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
+}
+
+.card-icon {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.card h2 {
+    font-size: 23px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.total-card h2 {
+    color: #a78bfa;
+}
+
+.count-card h2 {
+    color: #38bdf8;
+}
+
+.budget-card h2 {
+    color: #fbbf24;
+}
+
+.balance-card h2 {
+    color: #34d399;
+}
+
+
+.budget-section {
+    background: #171e33;
+    border: 1px solid #29334d;
+    border-radius: 17px;
+    padding: 24px;
+    margin-bottom: 25px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.section-heading h3 {
+    font-size: 16px;
+}
+
+#budgetPercentage {
+    color: #a78bfa;
+    font-weight: 700;
+}
+
+.progress-container {
+    width: 100%;
+    height: 12px;
+    background: #29334d;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+#budgetMessage {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.budget-input {
+    display: flex;
+    gap: 10px;
+}
+
+.budget-input input {
+    flex: 1;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 0.85fr 1.5fr;
+    gap: 22px;
+    margin-bottom: 25px;
+}
+
+.expense-form-section,
+.expense-list-section,
+.category-section {
+    background: #171e33;
+    border: 1px solid #29334d;
+    padding: 25px;
+    border-radius: 17px;
+}
+
+.expense-form-section h3,
+.expense-list-section h3,
+.category-section h3 {
+    font-size: 17px;
+    margin-bottom: 22px;
+}
+
+/* 7. FORM DESIGN */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label,
+.filter-box label {
+    display: block;
+    font-size: 12px;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 13px 14px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    color: #ffffff;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.12);
+}
+
+input::placeholder {
+    color: #64748b;
+}
+
+select option {
+    background: #171e33;
+    color: white;
+}
+
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.add-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #7c3aed, #a855f7);
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.add-btn:hover {
+    background: linear-gradient(90deg, #9333ea, #c026d3);
+    transform: scale(1.02);
+}
+
+.budget-input button {
+    padding: 12px 17px;
+    background: #7c3aed;
+    color: white;
+    border-radius: 10px;
+}
+
+.budget-input button:hover {
+    background: #9333ea;
+}
+
+/* 9. EXPENSE LIST */
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.list-header span {
+    color: #a78bfa;
+    font-size: 12px;
+}
+
+.search-box {
+    margin-bottom: 15px;
+}
+
+.filter-box {
+    margin-bottom: 20px;
+}
+
+.expense-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 10px;
+    color: #94a3b8;
+}
+
+.empty-state div {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.empty-state h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    font-size: 12px;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: #0f172a;
+    border: 1px solid #29334d;
+    padding: 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.expense-item:hover {
+    border-color: #8b5cf6;
+    transform: translateX(4px);
+}
+
+.expense-info {
+    min-width: 0;
+}
+
+.expense-info h4 {
+    font-size: 13px;
+    margin-bottom: 5px;
+    overflow-wrap: anywhere;
+}
+
+.expense-info p {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.expense-amount {
+    color: #f87171;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.delete-btn {
+    background: #7f1d1d;
+    color: #fecaca;
+    padding: 8px 11px;
+    border-radius: 8px;
+    font-size: 11px;
+    margin-left: 8px;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+    color: white;
+}
+
+/* 12. CATEGORY SUMMARY */
+
+.category-section {
+    margin-bottom: 25px;
+}
+
+.category-summary {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.category-item {
+    background: #0f172a;
+    border: 1px solid #29334d;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+.category-item h4 {
+    color: #c4b5fd;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.category-item p {
+    font-size: 15px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.category-summary > p {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.footer {
+    text-align: center;
+    padding: 25px 10px;
+    border-top: 1px solid #29334d;
+    color: #94a3b8;
+}
+
+.footer h3 {
+    color: #a78bfa;
+    margin-bottom: 8px;
+}
+
+.footer p {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+/* 14. SCROLLBAR*/
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b1020;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6d28d9;
+    border-radius: 10px;
+}
+
+/* 15. RESPONSIVE DESIGN*/
+
+@media (max-width: 950px) {
+
+    .summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .category-summary {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+        padding: 20px 0;
+    }
+
+    .header h1 {
+        font-size: 23px;
+    }
+
+    .welcome {
+        padding: 20px;
+    }
+
+    .welcome h2 {
+        font-size: 19px;
+    }
+
+    .welcome-icon {
+        font-size: 40px;
+    }
+
+    .summary {
+        gap: 10px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+
+    .budget-section,
+    .expense-form-section,
+    .expense-list-section,
+    .category-section {
+        padding: 18px;
+    }
+
+    .budget-input {
+        flex-direction: column;
+    }
+
+    .category-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .expense-item {
+        flex-wrap: wrap;
+    }
+
+}
